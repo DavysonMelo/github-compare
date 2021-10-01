@@ -18,8 +18,8 @@ export const Container = styled.div`
     }
   }
 
-  section + section {
-    width: 40%;
+  #search {
+    width: 35%;
   }
 
   #title {

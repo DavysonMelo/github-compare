@@ -3,6 +3,7 @@ import { FaAdjust, FaGithub } from 'react-icons/fa';
 import { MdStarBorder } from 'react-icons/md';
 import { Button } from '../../common/CommonComponents';
 import AddRepoDropDown from '../AddRopoDropDown';
+import RepositoryFilter from '../RepositoryFilter';
 import SearchBar from '../SearchBar';
 import ToggleListButton from '../ToggleListButton';
 import { Container } from './style';
@@ -14,7 +15,8 @@ const NavBar: React.FC = () => {
         <FaGithub size={25} color="#6B6C7E" />
         <span id="title">Github Compare</span>
       </section>
-      <section>
+      <RepositoryFilter />
+      <section id="search">
         <SearchBar />
       </section>
       <ul id="menu">
