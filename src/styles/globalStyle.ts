@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
   * {
@@ -18,16 +18,21 @@ export default createGlobalStyle`
     font-size: 14px;
   }
 
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
   #root {
     position: relative;
     overflow-y: hidden;
     overflow-x: hidden;
+    --primary: #0B5FFF;
+    --secondary: #6B6C7E;
+    --warning: #B95000;
+    --dark: #272833;
   }
 
-  --primary: #0B5FFF;
-  --secondary: #6B6C7E;
-  --warning: #B95000;
-  --dark: #272833;
 
   ::-webkit-scrollbar {
     width: 4px;
