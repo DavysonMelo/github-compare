@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
   width: 30%;
+  min-width: 321px;
   margin: 10px 0 0 10px;
 
   .card {
