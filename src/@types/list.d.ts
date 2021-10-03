@@ -1,19 +1,21 @@
 interface ListContext {
   listType: string;
   setListType(type: string): void;
-  reporitories: Repository[];
-  filterAndSort: {
-    repositories: Repository[];
-    type:
-      | 'star'
-      | 'last-commit'
-      | 'forks'
-      | 'stars'
-      | 'age'
-      | 'open-issues'
-      | 'search';
-    searchKey: string;
-  };
+  repositories: Repository[];
+  filterAndSort: FilterAndSort;
+}
+interface FilterAndSort {
+  repositories: Repository[];
+  type:
+    | 'star'
+    | 'last-commit'
+    | 'forks'
+    | 'stars'
+    | 'age'
+    | 'open-issues'
+    | 'search'
+    | '';
+  searchKey: string;
 }
 
 interface Repository {
