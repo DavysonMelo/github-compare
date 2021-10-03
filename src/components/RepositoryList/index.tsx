@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useListContext } from '../../contexts/listViewContext';
 import GridCard from '../GridCard';
 import RepoListItem from '../RepoListItem';
 import { GridContainer, ListContainer } from './style';
 
 const RepositoryList: React.FC = () => {
+  const { listType } = useListContext();
   const renderGrid = () => {
     return (
       <GridContainer>
@@ -35,7 +37,7 @@ const RepositoryList: React.FC = () => {
     );
   };
 
-  return renderGrid();
+  return listType === 'grid' ? renderGrid() : renderList();
 };
 
 export default RepositoryList;
