@@ -1,10 +1,10 @@
 import React from 'react';
 import ClayCard from '@clayui/card';
 import ClayLabel from '@clayui/label';
-import { FiTrash2 } from 'react-icons/fi';
 import { MdStarBorder, MdStar } from 'react-icons/md';
 import { Container, Header, Body } from './style';
 import logo from '../../assets/logo.png';
+import DeleteModal from '../DeleteModal';
 
 const RepoListItem: React.FC = () => {
   return (
@@ -19,9 +19,7 @@ const RepoListItem: React.FC = () => {
             <button type="button">
               <MdStarBorder size={23} />
             </button>
-            <button type="button">
-              <FiTrash2 size={23} />
-            </button>
+            <DeleteModal />
           </section>
         </Header>
         <Body>
