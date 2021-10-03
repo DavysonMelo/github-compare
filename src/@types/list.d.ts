@@ -3,18 +3,12 @@ interface ListContext {
   setListType(type: string): void;
   repositories: Repository[];
   filterAndSort: FilterAndSort;
+  onChangeFilter(filter: Sort): void;
+  getRepository(key: string): void;
 }
 interface FilterAndSort {
   repositories: Repository[];
-  type:
-    | 'star'
-    | 'last-commit'
-    | 'forks'
-    | 'stars'
-    | 'age'
-    | 'open-issues'
-    | 'search'
-    | '';
+  type: Sort;
   searchKey: string;
 }
 
@@ -30,3 +24,7 @@ interface Repository {
   starred?: boolean;
   language: string;
 }
+
+type Sort = 'lastCommit' | 'forks' | 'stars' | 'age' | 'openIssues' | '';
+
+type Filter = 'star' | 'search';
