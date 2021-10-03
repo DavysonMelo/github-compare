@@ -4,12 +4,15 @@ interface ListContext {
   repositories: Repository[];
   filterAndSort: FilterAndSort;
   onChangeFilter(filter: Sort): void;
-  getRepository(key: string): void;
+  setRepositories(repoitories: Repository[]): void;
 }
 interface FilterAndSort {
   repositories: Repository[];
   type: Sort;
   searchKey: string;
+}
+interface License {
+  name: string;
 }
 
 interface Repository {
@@ -20,7 +23,7 @@ interface Repository {
   open_issues: number;
   created_at: string;
   pushed_at: string;
-  license: ILicense | null;
+  license: License | null;
   starred?: boolean;
   language: string;
 }
