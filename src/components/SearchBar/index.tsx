@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { ClayInput } from '@clayui/form';
 import { FiSearch } from 'react-icons/fi';
 import { Container, Button } from './style';
+import { useListContext } from '../../contexts/listViewContext';
 
 const SearchBar: React.FC = () => {
+  const { searchRepo } = useListContext();
+  const inputRef = useRef<HTMLInputElement>({} as HTMLInputElement);
+
+  const search = () => {
+    searchRepo(inputRef.current.value);
+  };
+
   return (
     <Container>
       <ClayInput.Group>
@@ -13,9 +21,10 @@ const SearchBar: React.FC = () => {
             aria-label="Search"
             type="text"
             placeholder="Search"
+            ref={inputRef}
           />
           <ClayInput.GroupInsetItem after>
-            <Button type="button">
+            <Button type="button" onClick={search}>
               <FiSearch color="#6B6C7E" />
             </Button>
           </ClayInput.GroupInsetItem>
