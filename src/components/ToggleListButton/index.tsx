@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ClayDropDown from '@clayui/drop-down';
 import { BsFillGridFill } from 'react-icons/bs';
 import { FaThList } from 'react-icons/fa';
-import { Button } from '../../common/CommonComponents';
+import { Button } from '../common/CommonComponents';
 import { useListContext } from '../../contexts/listViewContext';
 
 const ToggleListButton: React.FC = () => {
