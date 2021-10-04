@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaAdjust, FaGithub } from 'react-icons/fa';
 import { MdStarBorder, MdStar } from 'react-icons/md';
-import { Button } from '../../common/CommonComponents';
+import { Button } from '../common/CommonComponents';
 import { useListContext } from '../../contexts/listViewContext';
 import AddRepoDropDown from '../AddRopoDropDown';
 import RepositoryFilter from '../RepositoryFilter';
