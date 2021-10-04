@@ -33,7 +33,6 @@ const AddRepoDropDown: React.FC = () => {
     } else {
       try {
         const response = await Api.getUserRepos(key);
-        console.log(response);
         if (response.length === 0) {
           throw new Error('Could not find reposoritory!');
         }
