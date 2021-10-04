@@ -6,10 +6,12 @@ interface ListContext {
   onChangeFilter(filter: Sort): void;
   setRepositories(repoitories: Repository[]): void;
   searchRepo(key: string): void;
+  toggleStarred(id: number): void;
+  filterStar(starred: boolean): void;
 }
 interface FilterAndSort {
   repositories: Repository[];
-  type: Sort;
+  type: Sort | Filter;
 }
 interface License {
   name: string;
