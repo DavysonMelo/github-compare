@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import sorts from '../utils/sortFunctions';
+import filters from '../utils/filterFunctions';
 
 const ListContext = createContext<ListContext>({} as ListContext);
 
@@ -12,20 +14,37 @@ export const ListContextProvider: React.FC = ({ children }) => {
   const [filterAndSort, setFilterAndSort] = useState<FilterAndSort>({
     repositories: [] as Repository[],
     type: '',
-    searchKey: '',
   });
 
   const onChangeFilter = (filter: Sort) => {
-    console.log('');
+    const sortFunction = sorts[filter];
+    setFilterAndSort({
+      repositories: sortFunction(repositories),
+      type: filter,
+    });
   };
 
   useEffect(() => {
     setFilterAndSort({
       repositories,
       type: '',
-      searchKey: '',
     });
   }, [repositories]);
+
+  const searchRepo = (key: string) => {
+    if (key !== '') {
+      const filterFunction = filters.search;
+      setFilterAndSort({
+        repositories: filterFunction(repositories, key),
+        type: '',
+      });
+    } else {
+      setFilterAndSort({
+        repositories,
+        type: '',
+      });
+    }
+  };
 
   return (
     <ListContext.Provider
@@ -36,6 +55,7 @@ export const ListContextProvider: React.FC = ({ children }) => {
         filterAndSort,
         onChangeFilter,
         setRepositories,
+        searchRepo,
       }}
     >
       {children}
