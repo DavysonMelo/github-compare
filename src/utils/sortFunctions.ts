@@ -34,7 +34,7 @@ const sorts = {
   [SORT.OPEN_ISSUES]: sortOpenIssues,
   [SORT.AGE]: sortAge,
   [SORT.LAST_COMMIT]: sortLastCommit,
-  '': (array: Repository[]) => array,
+  '': (array: Repository[]): Repository[] => array,
 };
 
 export default sorts;
