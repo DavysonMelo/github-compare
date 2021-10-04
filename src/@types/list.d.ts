@@ -8,6 +8,7 @@ interface ListContext {
   searchRepo(key: string): void;
   toggleStarred(id: number): void;
   filterStar(starred: boolean): void;
+  deleteRepository(id: number): void;
 }
 interface FilterAndSort {
   repositories: Repository[];
