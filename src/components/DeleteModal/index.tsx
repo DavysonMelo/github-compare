@@ -3,12 +3,21 @@ import ClayModal, { useModal } from '@clayui/modal';
 import ClayButton from '@clayui/button';
 import { FiTrash2, FiAlertTriangle } from 'react-icons/fi';
 import { Button } from './style';
+import { useListContext } from '../../contexts/listViewContext';
 
-const DeleteModal: React.FC = () => {
+interface Props {
+  id: number;
+  name: string;
+}
+
+const DeleteModal: React.FC<Props> = ({ id, name }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { observer, onClose } = useModal({
     onClose: () => setIsOpen(false),
   });
+
+  const { deleteRepository } = useListContext();
+
   return (
     <>
       {isOpen && (
@@ -18,7 +27,7 @@ const DeleteModal: React.FC = () => {
           </ClayModal.Header>
           <ClayModal.Body>
             <p>
-              Are you sure you want to delete <strong>Repo name</strong>{' '}
+              Are you sure you want to delete <strong>{name}</strong>{' '}
               repository?
             </p>
           </ClayModal.Body>
@@ -28,7 +37,12 @@ const DeleteModal: React.FC = () => {
                 <ClayButton displayType="secondary" onClick={onClose}>
                   Cancel
                 </ClayButton>
-                <ClayButton className="btn btn-warning">Delete</ClayButton>
+                <ClayButton
+                  className="btn btn-warning"
+                  onClick={() => deleteRepository(id)}
+                >
+                  Delete
+                </ClayButton>
               </ClayButton.Group>
             }
           />

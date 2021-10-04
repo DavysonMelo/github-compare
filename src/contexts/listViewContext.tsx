@@ -83,6 +83,21 @@ export const ListContextProvider: React.FC = ({ children }) => {
     }
   };
 
+  const deleteRepository = (id: number) => {
+    const newRepositories = repositories.filter(item => {
+      return item.id !== id;
+    });
+    setRepositories(newRepositories);
+
+    const newFilterRepositories = filterAndSort.repositories.filter(item => {
+      return item.id !== id;
+    });
+    setFilterAndSort({
+      ...filterAndSort,
+      repositories: newFilterRepositories,
+    });
+  };
+
   return (
     <ListContext.Provider
       value={{
@@ -95,6 +110,7 @@ export const ListContextProvider: React.FC = ({ children }) => {
         searchRepo,
         toggleStarred,
         filterStar,
+        deleteRepository,
       }}
     >
       {children}

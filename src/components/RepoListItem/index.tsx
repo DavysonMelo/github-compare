@@ -2,6 +2,7 @@ import React from 'react';
 import ClayCard from '@clayui/card';
 import ClayLabel from '@clayui/label';
 import { MdStarBorder, MdStar } from 'react-icons/md';
+import moment from 'moment';
 import { Container, Header, Body } from './style';
 import logo from '../../assets/logo.png';
 import DeleteModal from '../DeleteModal';
@@ -45,42 +46,41 @@ const RepoListItem: React.FC<Props> = ({
             <button type="button" onClick={() => toggleStarred(id)}>
               {!starred ? <MdStarBorder size={23} /> : <MdStar size={23} />}
             </button>
-            <DeleteModal />
+            <DeleteModal id={id} name={name} />
           </section>
         </Header>
         <Body>
           <ul>
             <li>
               <p>
-                Stars <span>{stars}</span>
+                Stars<span>{stars}</span>
               </p>
             </li>
 
             <li>
               <p>
-                Forks <span>{forks}</span>
+                Forks<span>{forks}</span>
               </p>
             </li>
 
             <li>
               <p>
-                Open Issues <span>{openIssues}</span>
+                Open Issues<span>{openIssues}</span>
               </p>
             </li>
             <li>
               <p>
-                Age <span>{age}</span>
+                Age<span>{moment(new Date(age)).fromNow()}</span>
               </p>
             </li>
             <li>
               <p>
-                Last commit
-                <span> {lastCommit}</span>
+                Last commit<span>{moment(new Date(lastCommit)).fromNow()}</span>
               </p>
             </li>
             <li>
               <p>
-                License <span>{license !== undefined ? license : `N/A`}</span>
+                License<span>{license !== undefined ? license : `N/A`}</span>
               </p>
             </li>
           </ul>
