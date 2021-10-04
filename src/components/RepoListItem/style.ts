@@ -63,6 +63,7 @@ export const Body = styled.div`
         color: var(--secondary);
         span {
           font-weight: 400;
+          margin-left: 10px;
         }
       }
     }

@@ -61,6 +61,7 @@ export const Body = styled.div`
 
         span {
           font-weight: 400;
+          margin-left: 10px;
         }
       }
     }
