@@ -5,6 +5,7 @@ import { MdStarBorder, MdStar } from 'react-icons/md';
 import { Container, Header, Body } from './style';
 import logo from '../../assets/logo.png';
 import DeleteModal from '../DeleteModal';
+import { useListContext } from '../../contexts/listViewContext';
 
 interface Props {
   id: number;
@@ -31,6 +32,7 @@ const RepoListItem: React.FC<Props> = ({
   starred,
   language,
 }) => {
+  const { toggleStarred } = useListContext();
   return (
     <Container>
       <ClayCard className="card">
@@ -40,7 +42,7 @@ const RepoListItem: React.FC<Props> = ({
             <span>{name}</span>
           </section>
           <section id="right">
-            <button type="button">
+            <button type="button" onClick={() => toggleStarred(id)}>
               {!starred ? <MdStarBorder size={23} /> : <MdStar size={23} />}
             </button>
             <DeleteModal />
