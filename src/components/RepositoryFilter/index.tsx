@@ -2,9 +2,12 @@ import React, { useState } from 'react';
 import ClayDropDown from '@clayui/drop-down';
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { Container } from './style';
+import { useListContext } from '../../contexts/listViewContext';
+import SORT from '../../consts/Sort';
 
 const RepositoryFilter: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { onChangeFilter } = useListContext();
 
   return (
     <Container>
@@ -24,11 +27,29 @@ const RepositoryFilter: React.FC = () => {
       >
         <ClayDropDown.ItemList>
           <ClayDropDown.Group header="ORDER BY">
-            <ClayDropDown.Item>Stars</ClayDropDown.Item>
-            <ClayDropDown.Item>Forks</ClayDropDown.Item>
-            <ClayDropDown.Item>Open Issues</ClayDropDown.Item>
-            <ClayDropDown.Item>Age</ClayDropDown.Item>
-            <ClayDropDown.Item>Last commit</ClayDropDown.Item>
+            <ClayDropDown.Item
+              onClick={() => onChangeFilter(SORT.STARS as Sort)}
+            >
+              Stars
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+              onClick={() => onChangeFilter(SORT.FORKS as Sort)}
+            >
+              Forks
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+              onClick={() => onChangeFilter(SORT.OPEN_ISSUES as Sort)}
+            >
+              Open Issues
+            </ClayDropDown.Item>
+            <ClayDropDown.Item onClick={() => onChangeFilter(SORT.AGE as Sort)}>
+              Age
+            </ClayDropDown.Item>
+            <ClayDropDown.Item
+              onClick={() => onChangeFilter(SORT.LAST_COMMIT as Sort)}
+            >
+              Last commit
+            </ClayDropDown.Item>
           </ClayDropDown.Group>
         </ClayDropDown.ItemList>
       </ClayDropDown>
