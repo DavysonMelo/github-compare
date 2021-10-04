@@ -5,11 +5,11 @@ interface ListContext {
   filterAndSort: FilterAndSort;
   onChangeFilter(filter: Sort): void;
   setRepositories(repoitories: Repository[]): void;
+  searchRepo(key: string): void;
 }
 interface FilterAndSort {
   repositories: Repository[];
   type: Sort;
-  searchKey: string;
 }
 interface License {
   name: string;
